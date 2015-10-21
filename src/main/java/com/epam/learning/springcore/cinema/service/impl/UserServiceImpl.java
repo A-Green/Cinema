@@ -44,5 +44,5 @@ public class UserServiceImpl implements UserService {
 	public void remove(Integer key) throws ServiceException {
 		// TODO Auto-generated method stub
 		
-	}	
+	}
 }
