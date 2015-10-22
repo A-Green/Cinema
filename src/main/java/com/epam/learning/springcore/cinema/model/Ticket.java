@@ -2,20 +2,21 @@ package com.epam.learning.springcore.cinema.model;
 
 public class Ticket extends Entity {
 
-	Integer seetNumber;
+	Integer seatNumber;
 	
 	public Ticket() {	
 	}
 	
-	public Ticket(int seetNumber) {
-		this.seetNumber = seetNumber;
+	public Ticket(int seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 
-	public Integer getSeetNumber() {
-		return seetNumber;
+	public Integer getSeatNumber() {
+		return seatNumber;
 	}
 
-	public void setSeetNumber(Integer seetNumber) {
-		this.seetNumber = seetNumber;
+	public void setSeatNumber(Integer seatNumber) {
+		this.seatNumber = seatNumber;
 	}
+
 }

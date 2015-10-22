@@ -3,11 +3,14 @@ package com.epam.learning.springcore.cinema.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.epam.learning.springcore.cinema.model.Auditorium;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.service.EventService;
 import com.epam.learning.springcore.cinema.service.exception.ServiceException;
 
+@Service
 public class EventServiceImpl implements EventService {
 
 	public void save(Event entity) throws ServiceException {

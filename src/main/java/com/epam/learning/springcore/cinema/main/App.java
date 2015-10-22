@@ -1,7 +1,6 @@
 package com.epam.learning.springcore.cinema.main;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Component;
 import com.epam.learning.springcore.cinema.service.EventService;
 import com.epam.learning.springcore.cinema.service.UserService;
 
-@Qualifier("testapp")
 @Component
 public class App {
 
@@ -23,5 +21,6 @@ public class App {
 	public static void main(String... args) {
 		ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 		App app = (App) ctx.getBean("app");	
+		System.out.println(app.userService);
 	}
 }
