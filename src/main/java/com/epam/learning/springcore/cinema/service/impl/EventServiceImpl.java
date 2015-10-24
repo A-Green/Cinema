@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.epam.learning.springcore.cinema.model.Auditorium;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.service.EventService;
+import com.epam.learning.springcore.cinema.service.exception.EventServiceException;
 import com.epam.learning.springcore.cinema.service.exception.ServiceException;
 
 @Service
@@ -23,17 +24,17 @@ public class EventServiceImpl implements EventService {
 		
 	}
 
-	public List<Event> getForDateRange(Date form, Date to) throws ServiceException {
+	public List<Event> getForDateRange(Date form, Date to) throws EventServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Event> getNextEvents(Date to) throws ServiceException {
+	public List<Event> getNextEvents(Date to) throws EventServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void assignAuditorium(Event event, Auditorium auditorium, Date date) throws ServiceException {
+	public void assignAuditorium(Event event, Auditorium auditorium, Date date) throws EventServiceException {
 		// TODO Auto-generated method stub
 		
 	}

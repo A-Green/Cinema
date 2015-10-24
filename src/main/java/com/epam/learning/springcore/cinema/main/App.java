@@ -1,10 +1,15 @@
 package com.epam.learning.springcore.cinema.main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
+import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
 import com.epam.learning.springcore.cinema.service.EventService;
 import com.epam.learning.springcore.cinema.service.UserService;
@@ -28,6 +33,9 @@ public class App {
 		user.setId(1);
 		user.setEmail("testemail");
 		user.setName("testName");
+		user.setBookedTickets(
+				new ArrayList<>(
+						Arrays.asList(new Ticket(), new Ticket())));
 		
 		app.userService.save(user);
 		
@@ -41,6 +49,10 @@ public class App {
 		
 		newUser = app.userService.getByEmail("testemail");
 		System.out.println(newUser);
+		newUser = null;
 		
+		List<Ticket> bookedTickets = app.userService.getBookedTickets(1);
+		System.out.println(bookedTickets);
+
 	}
 }

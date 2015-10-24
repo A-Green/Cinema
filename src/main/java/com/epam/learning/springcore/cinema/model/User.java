@@ -2,11 +2,8 @@ package com.epam.learning.springcore.cinema.model;
 
 import java.util.List;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-
-public class User extends Entity {
+public class User extends Entity<Integer> {
 	
-	Integer id;
 	String email;
 	String name;
 	List<Ticket> bookedTickets;

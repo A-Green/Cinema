@@ -1,9 +1,12 @@
 package com.epam.learning.springcore.cinema.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.epam.learning.springcore.cinema.dao.UserDao;
+import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
 import com.epam.learning.springcore.cinema.service.UserService;
 import com.epam.learning.springcore.cinema.service.exception.ServiceException;
@@ -15,6 +18,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao; 
 
+	@Override
 	public void save(User entity) throws ServiceException {
 		userDao.save(entity);
 	}
@@ -31,9 +35,8 @@ public class UserServiceImpl implements UserService {
 		return userDao.getByName(name);
 	}
 
-	public void getBookedTickets(Integer userId) throws UserServiceException {
-		// TODO Auto-generated method stub
-		
+	public List<Ticket> getBookedTickets(Integer userId) throws UserServiceException {
+		return userDao.getBookedTickets(userId);
 	}
 	
 	public void remove(Integer id) throws ServiceException {

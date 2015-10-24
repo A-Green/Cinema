@@ -4,7 +4,17 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Entity {
+public abstract class Entity<PK> {
+	
+	protected PK id;
+	
+	public PK getId() {
+		return id;
+	}
+	
+	public void setId(PK id) {
+		this.id = id;
+	}
 	
 	@Override
 	public int hashCode() {

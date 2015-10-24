@@ -6,7 +6,7 @@ import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
 import com.epam.learning.springcore.cinema.service.exception.UserServiceException;
 
-public interface UserDao extends BaseDao<User, Integer> {
+public interface UserDao extends BaseDao<Integer, User> {
 	
 	User getByEmail(String email) throws UserServiceException;
 	User getByName(String name) throws UserServiceException;
