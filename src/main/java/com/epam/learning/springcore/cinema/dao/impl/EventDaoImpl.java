@@ -4,10 +4,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.epam.learning.springcore.cinema.dao.EventDao;
 import com.epam.learning.springcore.cinema.model.Auditorium;
 import com.epam.learning.springcore.cinema.model.Event;
 
+@Repository
 public class EventDaoImpl extends MapBaseDaoImpl<Integer, Event> implements EventDao{
 	
 	private Map<Integer, Event> events;

@@ -9,7 +9,6 @@ import com.epam.learning.springcore.cinema.model.Entity;
 
 public abstract class MapBaseDaoImpl<PK, T extends Entity<PK>> implements BaseDao<PK, T> {
 
-	@Override
 	public abstract Map<PK, T> getAll();
 	
 	@Override
