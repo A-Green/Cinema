@@ -1,5 +1,7 @@
 package com.epam.learning.springcore.cinema.dao.impl;
 
+import java.util.Collection;
+
 import com.epam.learning.springcore.cinema.dao.EventDao;
 import com.epam.learning.springcore.cinema.model.Event;
 
@@ -10,14 +12,26 @@ public class EventDaoImpl implements EventDao{
 		return null;
 	}
 
-	public void save(Event entity) {
+	public Event save(Event entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void remove(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void delete(Event entity) {
+	@Override
+	public Collection<Event> getAll() {
 		// TODO Auto-generated method stub
-		
+		return null;
+	}
+
+	@Override
+	public Event getById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

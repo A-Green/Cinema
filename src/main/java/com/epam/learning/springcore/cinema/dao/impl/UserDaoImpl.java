@@ -1,47 +1,83 @@
 package com.epam.learning.springcore.cinema.dao.impl;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.epam.learning.springcore.cinema.dao.UserDao;
+import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
 import com.epam.learning.springcore.cinema.service.exception.UserServiceException;
 
 @Repository
 public class UserDaoImpl implements UserDao {
 
-	public User fetchById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	private static List<User> users;
+	
+	public  UserDaoImpl() {
+		users = new ArrayList<>();
+	}
+	
+	@Override
+	public User save(User entity) {
+		if (entity != null) {
+			users.add(entity);
+		}
+		return entity;
 	}
 
-	public void save(User entity) {
-		// TODO Auto-generated method stub
-		
+	@Override
+	public void remove(Integer id) {
+		for (User user : users) {
+			if (user.getId() == id) {
+				users.remove(user);
+				break;
+			}
+		}
 	}
 
-	public void delete(User entity) {
-		// TODO Auto-generated method stub
-		
+	@Override
+	public User getById(Integer id) {
+		return fieldGetter(id, "getId");
 	}
 
-	public User getById(Integer id) throws UserServiceException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	@Override
 	public User getByEmail(String email) throws UserServiceException {
-		// TODO Auto-generated method stub
-		return null;
+		return fieldGetter(email, "getEmail");
 	}
 
+	@Override
 	public User getByName(String name) throws UserServiceException {
-		// TODO Auto-generated method stub
+		return fieldGetter(name, "getName");
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Ticket> getBookedTickets(Integer userId) throws UserServiceException {
+		return (List<Ticket>) fieldGetter(userId, "getBookedTickets");
+	}
+
+	@Override
+	public Collection<User> getAll() {
+		return users;
+	}
+
+	@SuppressWarnings("unchecked")
+	private <T> User fieldGetter(T value, String methodName) {
+		try {
+			for (User user : users) {
+				Method m = user.getClass().getDeclaredMethod(methodName);
+				if (value == (T) m.invoke(user)) {
+					return user;
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
-
-	public void getBookedTickets(Integer userId) throws UserServiceException {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

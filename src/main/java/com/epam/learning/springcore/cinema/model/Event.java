@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Event extends Entity {
 	
@@ -59,15 +60,16 @@ public class Event extends Entity {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder()
-				.append(name)
-				.append(ticketPrice)
-				.append(holdingDate)
-				.append(rating).toHashCode();
+		 return HashCodeBuilder.reflectionHashCode(this);
 	}
 	
 	@Override
 	public boolean equals(Object o) {
 		return EqualsBuilder.reflectionEquals(this, o);
+	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
 	}
 }
