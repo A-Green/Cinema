@@ -1,5 +1,6 @@
 package com.epam.learning.springcore.cinema.model;
 
+import java.util.Date;
 import java.util.List;
 
 public class User extends Entity<Integer> {
@@ -7,6 +8,7 @@ public class User extends Entity<Integer> {
 	String email;
 	String name;
 	List<Ticket> bookedTickets;
+	Date birthday;
 	
 	public User(){
 	}
@@ -15,10 +17,19 @@ public class User extends Entity<Integer> {
 		this.id = id;
 	}
 	
-	public User(int id, String email, String name) {
+	public User(int id, String email, String name, Date date) {
 		this.id = id;
 		this.email = email;
 		this.name = name;
+		this.birthday = date;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public Integer getId() {

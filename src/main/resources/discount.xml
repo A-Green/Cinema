@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/context
+ 		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	<bean id="birthdayDiscStrategy" class="com.epam.learning.springcore.cinema.logic.discount.BirthdayStrategy">
+		<constructor-arg name="discountPercent" value="5"/>
+	</bean>
+	
+	<bean id="purchasedDiscStrategy" class="com.epam.learning.springcore.cinema.logic.discount.PurchasedStrategy">
+		<constructor-arg name="discountPercent" value="50"/>
+	</bean>
+	
+	<bean id="discountService" class="com.epam.learning.springcore.cinema.service.impl.DiscountServiceImpl">
+		<constructor-arg name="discountStrategies">
+			<list>
+				<ref bean="birthdayDiscStrategy" />
+				<ref bean="purchasedDiscStrategy" />
+			</list>
+		</constructor-arg>	
+	</bean>
+</beans>

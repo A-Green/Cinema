@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,7 @@ import com.epam.learning.springcore.cinema.model.User;
 import com.epam.learning.springcore.cinema.service.EventService;
 import com.epam.learning.springcore.cinema.service.UserService;
 import com.epam.learning.springcore.cinema.service.exception.ServiceException;
+
 
 @Component
 public class App {

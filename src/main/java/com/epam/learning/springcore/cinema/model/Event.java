@@ -3,7 +3,7 @@ package com.epam.learning.springcore.cinema.model;
 public class Event extends Entity<Integer> {
 	
 	private String name;
-	private double ticketPrice;
+	private double baseTicketPrice;
 	private Rating rating;
 
 	public Event() {
@@ -17,12 +17,12 @@ public class Event extends Entity<Integer> {
 		this.name = name;
 	}
 
-	public double getTicketPrice() {
-		return ticketPrice;
+	public double getBaseTicketPrice() {
+		return baseTicketPrice;
 	}
 
-	public void setTicketPrice(double ticketPrice) {
-		this.ticketPrice = ticketPrice;
+	public void setBaseTicketPrice(double baseTicketPrice) {
+		this.baseTicketPrice = baseTicketPrice;
 	}
 
 	public Rating getRating() {

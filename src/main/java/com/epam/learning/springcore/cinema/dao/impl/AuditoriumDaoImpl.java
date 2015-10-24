@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.epam.learning.springcore.cinema.dao.AuditoriumDao;
 import com.epam.learning.springcore.cinema.model.Auditorium;
 
+@Repository
 public class AuditoriumDaoImpl implements AuditoriumDao {
 
 	private Map<String, Auditorium> auditoriums;
