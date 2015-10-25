@@ -9,4 +9,5 @@ public interface AuditoriumService {
 	List<Auditorium> getAuditoriums() throws AuditoriumServiceException;
 	int getSeatsNumber(String auditName) throws AuditoriumServiceException;
 	List<Integer> getVipSeats(String auditName) throws AuditoriumServiceException;
+	Auditorium getByName(String name) throws AuditoriumServiceException;
 }

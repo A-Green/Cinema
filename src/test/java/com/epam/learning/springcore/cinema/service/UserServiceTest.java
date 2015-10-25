@@ -1,6 +1,8 @@
 package com.epam.learning.springcore.cinema.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +18,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
 import com.epam.learning.springcore.cinema.service.exception.ServiceException;
-import com.epam.learning.springcore.cinema.service.exception.UserServiceException;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -37,12 +38,13 @@ public class UserServiceTest {
 		testUser.setBookedTickets(
 				new ArrayList<>(
 						Arrays.asList(new Ticket(), new Ticket())));
-		
-		userService.save(testUser);
 	}
 	
 	@Test
-	public void userTest() throws UserServiceException {
+	public void CRUDTest() throws ServiceException  {
+		assertNotNull(userService);
+		userService.save(testUser);
+		
 		assertNotNull(userService.getById(1));
 		assertNotNull(userService.getByName("testName"));
 		assertNotNull(userService.getByEmail("testemail"));

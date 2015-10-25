@@ -6,11 +6,9 @@
  		http://www.springframework.org/schema/context
  		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-	<context:component-scan base-package="com.epam.learning.springcore.cinema.*" />
-<!-- 	<context:component-scan base-package="com.epam.learning.springcore.cinema.dao.*" />
-	<context:component-scan base-package="com.epam.learning.springcore.cinema.service.*" />
-	<context:component-scan base-package="com.epam.learning.springcore.cinema.model.*" />
-	<context:component-scan base-package="com.epam.learning.springcore.cinema.main.*" /> -->
+	<context:component-scan base-package="com.epam.learning.springcore.cinema.dao.impl" />
+	<context:component-scan base-package="com.epam.learning.springcore.cinema.service.impl" />
+	<context:component-scan base-package="com.epam.learning.springcore.cinema.model" />
 	
 	<import resource="classpath:discount.xml" />
 	<import resource="classpath:auditories.xml" />

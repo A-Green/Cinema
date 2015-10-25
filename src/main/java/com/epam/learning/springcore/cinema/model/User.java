@@ -1,5 +1,6 @@
 package com.epam.learning.springcore.cinema.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class User extends Entity<Integer> {
 	
 	String email;
 	String name;
-	List<Ticket> bookedTickets;
+	List<Ticket> bookedTickets = new ArrayList<>();
 	Date birthday;
 	
 	public User(){

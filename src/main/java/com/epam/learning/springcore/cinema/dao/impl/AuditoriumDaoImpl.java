@@ -12,13 +12,13 @@ import com.epam.learning.springcore.cinema.model.Auditorium;
 @Repository
 public class AuditoriumDaoImpl implements AuditoriumDao {
 
-	private Map<String, Auditorium> auditoriumsMap;
+	private static Map<String, Auditorium> auditoriumsMap;
 	
 	public  AuditoriumDaoImpl() {
 	}
 	
 	public void setAuditoriumsMap(Map<String, Auditorium> auditoriums){
-		this.auditoriumsMap = auditoriums;
+		auditoriumsMap = auditoriums;
 	}
 	
 	@Override
@@ -48,5 +48,10 @@ public class AuditoriumDaoImpl implements AuditoriumDao {
 		}
 		//TODO handle this smarter later
 		return null;
+	}
+
+	@Override
+	public Auditorium getByName(String name) {
+		return auditoriumsMap.get(name);
 	}
 }

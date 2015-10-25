@@ -2,8 +2,8 @@ package com.epam.learning.springcore.cinema.model;
 
 public abstract class Event extends Entity<Integer> {
 	
-	private String name;
-	private double baseTicketPrice;
+	protected String name;
+	protected double baseTicketPrice;
 
 	public Event() {
 	}

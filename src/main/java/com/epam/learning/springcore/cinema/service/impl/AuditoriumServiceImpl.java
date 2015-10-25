@@ -41,4 +41,9 @@ public class AuditoriumServiceImpl implements AuditoriumService {
 		return seats;
 	}
 
+	@Override
+	public Auditorium getByName(String name) throws AuditoriumServiceException {
+		return auditoriumDao.getByName(name);
+	}
+
 }

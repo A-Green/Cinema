@@ -52,13 +52,11 @@ public class UserDaoImpl extends MapBaseDaoImpl<Integer, User> implements UserDa
 	}
 
 	@Override
-	public boolean bookTicket(User user, Ticket ticket) {
+	public void bookTicket(User user, Ticket ticket) {
 		User registeredUser = users.get(user.getId());
-		if (registeredUser == null) {
-			return false;
+		if (registeredUser != null) {
+			registeredUser.getBookedTickets().add(ticket);
 		}
-		registeredUser.getBookedTickets().add(ticket);
-		return true;
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import com.epam.learning.springcore.cinema.model.Event;
 @Repository
 public class EventDaoImpl extends MapBaseDaoImpl<Integer, Event> implements EventDao{
 	
-	private Map<Integer, Event> events;
+	private static Map<Integer, Event> events;
 	
 	public EventDaoImpl() {
 		events = new HashMap<>();

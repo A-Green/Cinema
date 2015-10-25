@@ -11,10 +11,11 @@
 	</bean>
 	
 	<bean id="purchasedDiscStrategy" class="com.epam.learning.springcore.cinema.logic.discount.PurchasedStrategy">
-		<constructor-arg name="discountPercent" value="50"/>
+		<property name="discountPercent" value="50"/>
+		<property name="ticketCountForDiscount" value="10"/>
 	</bean>
 	
-	<bean id="discountService" class="com.epam.learning.springcore.cinema.service.impl.DiscountServiceImpl">
+	<bean id="preparedDiscountService" class="com.epam.learning.springcore.cinema.service.impl.DiscountServiceImpl">
 		<constructor-arg name="discountStrategies">
 			<list>
 				<ref bean="birthdayDiscStrategy" />

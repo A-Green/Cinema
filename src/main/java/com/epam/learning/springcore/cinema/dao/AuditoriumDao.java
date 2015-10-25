@@ -8,4 +8,5 @@ public interface AuditoriumDao {
 	List<Auditorium> getAuditoriums();
 	int getSeatsNumber(String auditName);
 	List<Integer> getVipSeats(String auditName);
+	Auditorium getByName(String name);
 }

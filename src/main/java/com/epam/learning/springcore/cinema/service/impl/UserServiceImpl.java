@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao; 
 
 	@Override
-	public void save(User entity) throws ServiceException {
+	public void save(User entity) throws UserServiceException {
 		userDao.save(entity);
 	}
 

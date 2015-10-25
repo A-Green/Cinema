@@ -34,5 +34,4 @@ public class DiscountServiceImpl implements DiscountService {
 		}
 		return maxDiscount;
 	}
-
 }

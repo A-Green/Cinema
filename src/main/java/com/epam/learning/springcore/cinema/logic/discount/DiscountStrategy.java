@@ -8,6 +8,12 @@ import com.epam.learning.springcore.cinema.model.User;
 public abstract class DiscountStrategy {
 	
 	protected double discountPercent;
-	
 	public abstract double getDiscount(Event event, User user, Date date);
+	
+	public double getDiscountPercent() {
+		return discountPercent;
+	}
+	public void setDiscountPercent(double discountPercent) {
+		this.discountPercent = discountPercent;
+	}
 }
