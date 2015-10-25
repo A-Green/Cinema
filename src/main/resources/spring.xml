@@ -13,5 +13,6 @@
 	<context:component-scan base-package="com.epam.learning.springcore.cinema.main.*" /> -->
 	
 	<import resource="classpath:discount.xml" />
+	<import resource="classpath:auditories.xml" />
 
 </beans>

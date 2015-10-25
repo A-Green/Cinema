@@ -12,20 +12,27 @@ import com.epam.learning.springcore.cinema.model.Auditorium;
 @Repository
 public class AuditoriumDaoImpl implements AuditoriumDao {
 
-	private Map<String, Auditorium> auditoriums;
+	private Map<String, Auditorium> auditoriumsMap;
+	
+	public  AuditoriumDaoImpl() {
+	}
+	
+	public void setAuditoriumsMap(Map<String, Auditorium> auditoriums){
+		this.auditoriumsMap = auditoriums;
+	}
 	
 	@Override
 	public List<Auditorium> getAuditoriums() {
 		List<Auditorium> auditoriumsLst = new ArrayList<>();
-		for (String name: auditoriums.keySet()) {
-			auditoriumsLst.add(auditoriums.get(name));
+		for (String name: auditoriumsMap.keySet()) {
+			auditoriumsLst.add(auditoriumsMap.get(name));
 		}
 		return auditoriumsLst;
 	}
 
 	@Override
 	public int getSeatsNumber(String auditName) {
-		Auditorium auditorium = auditoriums.get(auditName);
+		Auditorium auditorium = auditoriumsMap.get(auditName);
 		if (auditorium != null) {
 			return auditorium.getSeatsNumber();
 		}
@@ -35,7 +42,7 @@ public class AuditoriumDaoImpl implements AuditoriumDao {
 
 	@Override
 	public List<Integer> getVipSeats(String auditName) {
-		Auditorium auditorium = auditoriums.get(auditName);
+		Auditorium auditorium = auditoriumsMap.get(auditName);
 		if (auditorium != null) {
 			return auditorium.getVipSeats();
 		}

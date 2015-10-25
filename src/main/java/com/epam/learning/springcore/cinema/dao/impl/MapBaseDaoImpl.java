@@ -9,30 +9,30 @@ import com.epam.learning.springcore.cinema.model.Entity;
 
 public abstract class MapBaseDaoImpl<PK, T extends Entity<PK>> implements BaseDao<PK, T> {
 
-	public abstract Map<PK, T> getAll();
+	public abstract Map<PK, T> getEntityMap();
 	
 	@Override
 	public T getById(PK id) {
-		return (T) getAll().get(id);
+		return (T) getEntityMap().get(id);
 	}
 
 	@Override
 	public T save(T entity) {
 		if (entity != null) {
-			return (T) getAll().put(entity.getId(), entity);
+			return (T) getEntityMap().put(entity.getId(), entity);
 		}
 		return null;
 	}
 
 	@Override
 	public void remove(PK id) {
-		getAll().remove(id);
+		getEntityMap().remove(id);
 	}
 	
 	@SuppressWarnings("unchecked")
 	protected <valType> T fieldGetter(valType value, String methodName) {
 		try {
-			for (Entry<PK, T> entry : getAll().entrySet()) {
+			for (Entry<PK, T> entry : getEntityMap().entrySet()) {
 				T item = entry.getValue();
 				Method m = item.getClass().getDeclaredMethod(methodName);
 				if (value == (valType) m.invoke(item)) {

@@ -16,9 +16,12 @@ public class PurchasedStrategy extends DiscountStrategy {
 
 	@Override
 	public double getDiscount(Event event, User user, Date date) {
-		// TODO Auto-generated method stub
-		return 0;
+		double discount = 0;
+		if (user != null) {
+			if ((user.getBookedTickets().size() + 1) % 10 == 0) {
+				discount =  event.getBaseTicketPrice() / 100 * discountPercent;
+			}
+		}
+		return discount;
 	}
-
-
 }

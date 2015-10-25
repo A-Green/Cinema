@@ -3,6 +3,7 @@ package com.epam.learning.springcore.cinema.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.epam.learning.springcore.cinema.dao.AuditoriumDao;
@@ -14,6 +15,7 @@ import com.epam.learning.springcore.cinema.service.exception.AuditoriumServiceEx
 public class AuditoriumServiceImpl implements AuditoriumService {
 
 	@Autowired
+	@Qualifier("preparedAuditouriumDao")
 	private AuditoriumDao auditoriumDao;
 	
 	@Override

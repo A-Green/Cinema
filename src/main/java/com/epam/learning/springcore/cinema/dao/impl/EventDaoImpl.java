@@ -1,7 +1,9 @@
 package com.epam.learning.springcore.cinema.dao.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -21,12 +23,29 @@ public class EventDaoImpl extends MapBaseDaoImpl<Integer, Event> implements Even
 
 	@Override
 	public void assignAuditorium(Event event, Auditorium auditorium, Date date) {
-		// TODO Auto-generated method stub
-		
+		//do not need in this realization because there is no DB 
+		//and EventSerivice stores it in affiche map
 	}
 
 	@Override
-	public Map<Integer, Event> getAll() {
+	public Map<Integer, Event> getEntityMap() {
 		return events;
+	}
+
+	@Override
+	public List<Event> getByName(String name) {
+		List<Event> result = new ArrayList<>();
+		for (Integer eventId: events.keySet()){
+			Event event = events.get(eventId);
+			if (event.getName() == name){
+				result.add(event);
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public List<Event> getAllEvents() {
+		return  new ArrayList<Event>(events.values());
 	}
 }

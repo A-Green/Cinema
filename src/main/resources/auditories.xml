@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/context
+ 		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>auditorium.properties</value>
+		</property>
+	</bean>
+	
+	<bean id="auditorium1" class="com.epam.learning.springcore.cinema.model.Auditorium" scope="prototype">
+		<property name="id" value="${auditorium1.name}"/>
+		<property name="name" value="${auditorium1.name}"/>
+		<property name="seatsNumber" value="${auditorium1.seatsNumber}"/>
+		<property name="vipSeats" value="#{'${auditorium1.vipSeats}'.split(',')}"/>
+	</bean>
+	
+	<bean id="auditorium2" class="com.epam.learning.springcore.cinema.model.Auditorium" scope="prototype">
+		<property name="id" value="${auditorium2.name}"/>
+		<property name="name" value="${auditorium2.name}"/>
+		<property name="seatsNumber" value="${auditorium2.seatsNumber}"/>
+		<property name="vipSeats" value="#{'${auditorium2.vipSeats}'.split(',')}"/>
+	</bean>
+	
+	<bean id="auditorium3" class="com.epam.learning.springcore.cinema.model.Auditorium" scope="prototype">
+		<property name="id" value="${auditorium3.name}"/>
+		<property name="name" value="${auditorium3.name}"/>
+		<property name="seatsNumber" value="${auditorium3.seatsNumber}"/>
+		<property name="vipSeats" value="#{'${auditorium3.vipSeats}'.split(',')}"/>
+	</bean>
+	
+	<bean id="preparedAuditouriumDao" class="com.epam.learning.springcore.cinema.dao.impl.AuditoriumDaoImpl">
+		<property name="auditoriumsMap">
+			<map>
+				<entry key="#{auditorium1.getId()}" value-ref="auditorium1"/>
+				<entry key="#{auditorium2.getId()}" value-ref="auditorium2"/>
+				<entry key="#{auditorium3.getId()}" value-ref="auditorium3"/>
+			</map>
+		</property>
+	</bean>
+
+</beans>

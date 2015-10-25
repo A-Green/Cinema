@@ -1,14 +1,17 @@
 package com.epam.learning.springcore.cinema.dao;
 
+import java.util.Date;
 import java.util.List;
 
+import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
-import com.epam.learning.springcore.cinema.service.exception.UserServiceException;
 
 public interface UserDao extends BaseDao<Integer, User> {
 	
-	User getByEmail(String email) throws UserServiceException;
-	User getByName(String name) throws UserServiceException;
-	List<Ticket> getBookedTickets(Integer userId) throws UserServiceException;
+	User getByEmail(String email);
+	User getByName(String name);
+	List<Ticket> getBookedTickets(Integer userId);
+	boolean bookTicket(User user, Ticket ticket);
+	List<Ticket> getTicketsForEvent(Event event, Date date);
 }

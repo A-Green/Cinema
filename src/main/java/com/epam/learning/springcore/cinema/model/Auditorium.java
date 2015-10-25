@@ -4,11 +4,25 @@ import java.util.List;
 
 public class Auditorium extends Entity<String> {
 
-	int seatsNumber;
-	List<Integer> vipSeats;
-	
+	private int seatsNumber;
+	private List<Integer> vipSeats;
+	private String name;
+
 	public Auditorium() {
-		
+	}
+	
+	public Auditorium(String id, String name, int seatsNumber, List<Integer> vips) {
+		this.id = id;
+		this.name = name;
+		this.seatsNumber = seatsNumber;
+		this.vipSeats = vips;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public int getSeatsNumber() {
 		return seatsNumber;
