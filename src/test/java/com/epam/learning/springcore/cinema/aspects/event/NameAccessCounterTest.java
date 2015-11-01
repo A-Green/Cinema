@@ -1,6 +1,7 @@
 package com.epam.learning.springcore.cinema.aspects.event;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +14,7 @@ import com.epam.learning.springcore.cinema.model.Movie;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml" })
-public class EventCountersTest {
+public class NameAccessCounterTest {
 
 	@Autowired
 	private NameAccessCounter nameAccessCounter;
@@ -30,7 +31,6 @@ public class EventCountersTest {
 		event.setId(1);
 		event.setName("Terminator");
 		event.getName();
-		System.out.println(nameAccessCounter.getNameAccesCounter().get(1));
-		assertTrue(nameAccessCounter.getNameAccesCounter().get(1) == 1);
+		assertTrue(nameAccessCounter.getCount(1) == 1);
 	}
 }
