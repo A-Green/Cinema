@@ -44,12 +44,11 @@ public abstract class MapBaseDaoImpl<PK, T extends Entity<PK>> implements BaseDa
 			for (Entry<PK, T> entry : getEntityMap().entrySet()) {
 				T item = entry.getValue();
 				Method m = item.getClass().getDeclaredMethod(methodName);
-				if (value == (valType) m.invoke(item)) {
+				if (value.equals((valType) m.invoke(item))) {
 					return item;
 				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;

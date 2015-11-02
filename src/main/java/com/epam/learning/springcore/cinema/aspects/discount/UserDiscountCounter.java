@@ -19,8 +19,15 @@ public class UserDiscountCounter {
 	private void applyDscount() {}
 	
 	@Around("applyDscount() && args(strategy, event, user, date)")
-	public void count(ProceedingJoinPoint joinPoint, 
-			Object strategy, Object event, Object user, Object date) {
+	public void count(ProceedingJoinPoint joinPoint, Object strategy, Object event, Object user, Object date) {
+		/* Could just add some logic to discount service to store used discount type for user,
+		 * but intention was to add this functionality without changing existing business logic.
+		 * Unfortunately, we have no access to a method local variable through advises and can not 
+		 * determine what exactly discount type was applied. And here is when helper private method applyDiscount() comes.
+		 * Passing the most profitable discount to this method we can catch its type. 
+		 * But the problem is that this method is called by the object that is being proxied. Thus, Spring
+		 * can not catch it by itself and we have to use compile-time weaving provided by aspectJ...
+		 * That is huge for me right now at 3 A.M. I'd better go to bed */
 		System.out.println("aspectWorks");
 	};
 	

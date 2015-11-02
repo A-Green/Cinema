@@ -37,7 +37,7 @@ public class EventDaoImpl extends MapBaseDaoImpl<Integer, Event> implements Even
 		List<Event> result = new ArrayList<>();
 		for (Integer eventId: events.keySet()){
 			Event event = events.get(eventId);
-			if (event.getName() == name){
+			if (event.getName().equals(name)){
 				result.add(event);
 			}
 		}
