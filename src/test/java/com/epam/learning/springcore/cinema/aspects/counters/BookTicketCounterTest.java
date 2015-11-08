@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.aspects.event;
+package com.epam.learning.springcore.cinema.aspects.counters;
 
 import static org.junit.Assert.*;
 
@@ -10,11 +10,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.epam.learning.springcore.cinema.aspects.counters.BookTicketCounter;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Movie;
 import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
 import com.epam.learning.springcore.cinema.service.BookingService;
+import com.epam.learning.springcore.cinema.service.exception.BookingServiceException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml" })
@@ -47,7 +49,7 @@ public class BookTicketCounterTest {
 	}
 	
 	@Test
-	public void bookCounterTest() {
+	public void bookCounterTest() throws BookingServiceException {
 		User testUser = applicationContext.getBean(User.class);
 		int expectedCounterValue = 10;
 		for(int i = 0; i < expectedCounterValue; i++) {

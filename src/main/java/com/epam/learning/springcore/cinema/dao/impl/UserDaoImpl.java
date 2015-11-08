@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.stereotype.Repository;
 
@@ -74,5 +75,17 @@ public class UserDaoImpl extends MapBaseDaoImpl<Integer, User> implements UserDa
 			}
 		}
 		return bookedTickets;
+	}
+
+	@Override
+	public User registerUser(User user) {
+		if (user != null && user.getId() == null) {
+			Random random = new Random();
+			Integer id;
+			while(getEntityMap().keySet().contains(id = new Integer(random.nextInt(100000))));
+			user.setId(id);
+			users.put(id, user);
+		}
+		return user;
 	}
 }

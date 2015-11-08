@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.aspects.event;
+package com.epam.learning.springcore.cinema.aspects.counters;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.epam.learning.springcore.cinema.aspects.counters.NameAccessCounter;
 import com.epam.learning.springcore.cinema.model.Movie;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -32,5 +33,9 @@ public class NameAccessCounterTest {
 		event.setName("Terminator");
 		event.getName();
 		assertTrue(nameAccessCounter.getCount(1) == 1);
+		
+		event.getName();
+		event.getName();
+		assertTrue(nameAccessCounter.getCount(1) == 3);	
 	}
 }

@@ -17,6 +17,7 @@ import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Rating;
 import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
+import com.epam.learning.springcore.cinema.service.exception.BookingServiceException;
 import com.epam.learning.springcore.cinema.service.exception.EventServiceException;
 import com.epam.learning.springcore.cinema.service.exception.ServiceException;
 
@@ -33,6 +34,7 @@ public class BookingServiceTest {
 	private double basePrice = 100;
 	private Date eventDate = new Date(System.currentTimeMillis());
 	private Event event;
+	private String auditoriumName = "auditorium1";
 	
 	@Before
 	public void init() throws EventServiceException {
@@ -42,17 +44,17 @@ public class BookingServiceTest {
 	@Test
 	public void priceTest() throws ServiceException {
 		//unregistered user, price should not be changed
-		assertTrue(bookingService.getTicketPrice(event, eventDate, 1, new User()) == basePrice);
+		assertTrue(bookingService.getTicketPrice(event, eventDate, 1, new User(),auditoriumName) == basePrice);
 		
 		User user = new User();
 		user.setBirthday(eventDate);
 		
 		//unregistered user, price should not be changed
-		assertTrue(bookingService.getTicketPrice(event, eventDate, 1, user) < basePrice);
+		assertTrue(bookingService.getTicketPrice(event, eventDate, 1, user, auditoriumName) < basePrice);
 	}
 	
 	@Test
-	public void bookTest() {
+	public void bookTest() throws BookingServiceException {
 		Ticket t1 = new Ticket();
 		t1.setEvent(event);
 		t1.setEventDate(eventDate);

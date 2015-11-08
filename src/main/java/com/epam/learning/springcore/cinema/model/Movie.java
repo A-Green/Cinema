@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 public class Movie extends Event {
-
-	private Rating rating = Rating.MID;
-
+	
+	private String genre;
+	
 	public Movie() {
 	}
 
@@ -17,12 +17,12 @@ public class Movie extends Event {
 		this.name = name;
 		this.baseTicketPrice = basePrice;
 	}
-	
-	public Rating getRating() {
-		return rating;
+
+	public String getGenre() {
+		return genre;
 	}
 
-	public void setRating(Rating rating) {
-		this.rating = rating;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 }

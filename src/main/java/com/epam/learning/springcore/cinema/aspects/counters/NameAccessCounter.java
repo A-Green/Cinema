@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.aspects.event;
+package com.epam.learning.springcore.cinema.aspects.counters;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -13,7 +13,7 @@ import com.epam.learning.springcore.cinema.model.Event;
 public class NameAccessCounter extends AbstractSimpleCounter<Integer> {
 
 	@Pointcut("execution( * com.epam.learning.springcore.cinema.model.Event+.getName(..))")
-	private void getNameMethod(){}
+	public void getNameMethod(){}
 	
 	@After("getNameMethod()")
 	public void countName(JoinPoint joinPoint) {

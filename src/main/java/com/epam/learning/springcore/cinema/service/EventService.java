@@ -15,5 +15,5 @@ public interface EventService extends BaseService<Integer, Event> {
 	void assignAuditorium(Event event, Auditorium auditorium, Date date)throws EventServiceException;
 	List<Event> getByName(String name) throws EventServiceException;
 	List<Event> getAll() throws EventServiceException;
-	Affiche getAffiche();
+	Affiche getAffiche() throws EventServiceException;
 }

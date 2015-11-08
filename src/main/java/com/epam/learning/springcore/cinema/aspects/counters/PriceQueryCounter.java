@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.aspects.event;
+package com.epam.learning.springcore.cinema.aspects.counters;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;

@@ -8,6 +8,7 @@ import com.epam.learning.springcore.cinema.service.exception.UserServiceExceptio
 
 public interface UserService extends BaseService<Integer, User> {
 
+	User registerUser(User user) throws UserServiceException;
 	User getById(Integer id) throws UserServiceException;
 	User getByEmail(String email) throws UserServiceException;
 	User getByName(String name) throws UserServiceException;

@@ -21,10 +21,12 @@ public abstract class MapBaseDaoImpl<PK, T extends Entity<PK>> implements BaseDa
 	@Override
 	public T save(T entity) {
 		if (entity != null) {
-			PK id = entity.getId();			
+			PK id = entity.getId();
 			if (id == null){
 				Random random = new Random();
-				while(getEntityMap().keySet().contains(id = (PK) new Integer(random.nextInt(100000))));
+				// FIXME: 0.5%: what happens when we'd reached upper bound?
+				// It would be strange to manage those amount of objects using map-based dao =)
+				while(getEntityMap().keySet().contains(id = (PK) new Integer(random.nextInt(10000000))));
 				entity.setId(id);
 			}
 			getEntityMap().put(entity.getId(), entity);

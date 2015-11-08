@@ -26,18 +26,12 @@ public class DiscountServiceImpl implements DiscountService {
 	@Override
 	public double getDiscount(User user, Event event, Date date) {
 		double maxDiscount = 0;
-		DiscountStrategy bestStrategy = null;
 		for (DiscountStrategy strategy: discountStrategies) {
 			double discount = strategy.getDiscount(event, user, date);
 			if (maxDiscount < discount) {
 				maxDiscount = discount;
-				bestStrategy = strategy;
 			}
 		}
-		return applyDiscount(bestStrategy, event, user, date);
-	}
-	
-	private double applyDiscount(DiscountStrategy strategy, Event event, User user, Date date) {
-		return (strategy == null)? 0 : strategy.getDiscount(event, user, date);
+		return maxDiscount;
 	}
 }

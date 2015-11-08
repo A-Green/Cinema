@@ -42,4 +42,9 @@ public class UserServiceImpl implements UserService {
 	public void remove(Integer id) throws ServiceException {
 		userDao.remove(id);	
 	}
+
+	@Override
+	public User registerUser(User user) throws UserServiceException {
+		return userDao.registerUser(user);
+	}
 }

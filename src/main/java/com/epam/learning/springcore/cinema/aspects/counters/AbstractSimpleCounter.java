@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.aspects.event;
+package com.epam.learning.springcore.cinema.aspects.counters;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

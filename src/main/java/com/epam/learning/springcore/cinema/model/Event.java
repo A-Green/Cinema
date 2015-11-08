@@ -4,6 +4,7 @@ public abstract class Event extends Entity<Integer> {
 	
 	protected String name;
 	protected double baseTicketPrice;
+	protected Rating rating = Rating.MID;
 
 	public Event() {
 	}
@@ -22,5 +23,13 @@ public abstract class Event extends Entity<Integer> {
 
 	public void setBaseTicketPrice(double baseTicketPrice) {
 		this.baseTicketPrice = baseTicketPrice;
+	}
+
+	public Rating getRating() {
+		return rating;
+	}
+
+	public void setRating(Rating rating) {
+		this.rating = rating;
 	}
 }

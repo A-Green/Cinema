@@ -19,6 +19,7 @@ import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Movie;
 import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
+import com.epam.learning.springcore.cinema.service.exception.DiscountServiceException;
 import com.epam.learning.springcore.cinema.service.exception.ServiceException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -56,7 +57,7 @@ public class DiscountServiceTest {
 	}
 
 	@Test
-	public void discountTest() {
+	public void discountTest() throws DiscountServiceException {
 		assertNotNull(discountService);
 		double bPercent = birthdayDiscStrategy.getDiscountPercent();
 		double bDiscount = birthdayDiscStrategy.getDiscount(event, testUser, new Date(System.currentTimeMillis()));
