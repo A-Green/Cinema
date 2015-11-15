@@ -1,6 +1,7 @@
 package com.epam.learning.springcore.cinema.dao.impl.mapbased;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -53,5 +54,11 @@ public class AuditoriumDaoImpl implements AuditoriumDao {
 	@Override
 	public Auditorium getByName(String name) {
 		return auditoriumsMap.get(name);
+	}
+
+	@Override
+	public List<Auditorium> getAssignedAuditoriums(Date date) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

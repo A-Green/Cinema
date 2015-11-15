@@ -17,7 +17,7 @@
 	</context:component-scan>
 	<context:component-scan base-package="com.epam.learning.springcore.cinema.service.*" />
 	<context:component-scan base-package="com.epam.learning.springcore.cinema.model" />
-	<context:component-scan base-package="com.epam.learning.springcore.cinema.aspects.*" />
+	<context:component-scan base-package="com.epam.learning.springcore.cinema.aspects.counters.jdbc" />
 
 	<!--<import resource="classpath:auditories.xml" /> -->
 	<import resource="classpath:discount.xml" />

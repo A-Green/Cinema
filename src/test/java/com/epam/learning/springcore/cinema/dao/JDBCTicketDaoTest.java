@@ -1,6 +1,8 @@
 package com.epam.learning.springcore.cinema.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 import java.util.List;
@@ -55,15 +57,6 @@ public class JDBCTicketDaoTest extends ContextSupportTest {
 		ticket.setAuditorium(auditorium);
 		ticketDao.bookTicket(user, ticket);
 	}
-
-/*	@Test
-	public void getTicketForEventTest() {
-		List<Ticket> ticketsForEvent = ticketDao.getTicketsForEvent(event, new Date());
-		assertNotNull(ticketsForEvent);
-		assertTrue(ticketsForEvent.size() == 1);
-		assertEquals(ticket.getId(), ticketsForEvent.get(0).getId());
-		//TODO implemet assertEquals(ticket, ticketsForEvent.get(0));
-	}*/
 
 	@Test
 	public void getBookedTickets() {

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.epam.learning.springcore.cinema.dao.TicketDao;
-import com.epam.learning.springcore.cinema.dao.UserDao;
 import com.epam.learning.springcore.cinema.model.Auditorium;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Rating;
@@ -29,9 +28,6 @@ public class BookingServiceImpl implements BookingService {
 	private DiscountService discountService;
 
 	@Autowired
-	private UserDao userDao;
-
-	@Autowired
 	private TicketDao ticketDao;
 
 	@Autowired
@@ -49,7 +45,7 @@ public class BookingServiceImpl implements BookingService {
 				throw new BookingServiceException("Can not find specified auditorium " + auditorium);
 			}
 			
-			if (reqestedAud.getVipSeats().contains(seat)) {
+			if (auditoriumService.getVipSeats(auditorium).contains(seat)) {
 				price = price * VIP_SEATS_MULTIPLIER;
 			}
 			
@@ -65,8 +61,8 @@ public class BookingServiceImpl implements BookingService {
 
 	@Override
 	public void bookTicket(User user, Ticket ticket) {
-		//ticketDao.bookTicket(user, ticket);
-		//ticketDao.track(ticket);
+		ticketDao.bookTicket(user, ticket);
+		user.getBookedTickets().add(ticket);
 	}
 
 	@Override

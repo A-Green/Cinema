@@ -20,16 +20,16 @@ public class AuditoriumServiceTest {
 	@Autowired
 	private AuditoriumService auditoriumSerivce;
 	
-	//check that auditoriums are loaded from property file
+	//assuming that auditoriums was loaded from init script(populate-db.sql)
 	@Test
 	public void test() throws AuditoriumServiceException {
 		List<Auditorium> auditoriums = auditoriumSerivce.getAuditoriums();
 		assertNotNull(auditoriums);
-		//check that exactly 3 auditoriums was loaded from property file
-		assertTrue(auditoriums.size() == 3);
+		//check that exactly 2 auditoriums was loaded from init scripts
+		assertTrue(auditoriums.size() == 2);
 		
 		//check auditory
-		String auditName = "auditorium1";
+		String auditName = "aud1";
 		Auditorium aud1 = auditoriumSerivce.getByName(auditName);
 		assertNotNull(aud1);
 		assertEquals(auditoriumSerivce.getSeatsNumber(auditName), 100);

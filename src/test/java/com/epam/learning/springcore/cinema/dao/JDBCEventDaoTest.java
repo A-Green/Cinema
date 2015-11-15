@@ -19,6 +19,7 @@ import com.epam.learning.springcore.cinema.model.Auditorium;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Movie;
 import com.epam.learning.springcore.cinema.model.Rating;
+import com.epam.learning.springcore.cinema.utils.Formatter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml" })
@@ -69,18 +70,18 @@ public class JDBCEventDaoTest extends ContextSupportTest {
 		eventDao.remove(event2.getId());
 	}
 	
-	
 	@Test
 	public void assignAuditoriumTest() {
-		Date date = new Date();
+		Date date = Formatter.getCurrentDate();
+		System.out.println(eventDao.getEventsForDate(date));
 		//Assuming that aud1 exists (populated from populate-db script)
 		Auditorium aud1 = auditoriumDao.getByName("aud1");
 		assertNotNull(aud1);
+
 		eventDao.assignAuditorium(event, aud1, date);
-		
-		List<Event> assignedEvents = eventDao.getEventsForDate(date);
-		System.out.println(assignedEvents);
-		//TODO figure out how to select by date. probably millis does not stored
+
+		Auditorium assignedAud = auditoriumDao.getAssignedAuditoriums(date).get(0);
+		assertEquals(aud1, assignedAud);
 	}
 	
 	@Test

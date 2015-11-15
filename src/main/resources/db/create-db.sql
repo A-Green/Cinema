@@ -86,3 +86,54 @@ CREATE TABLE IF NOT EXISTS  affiche  (
     REFERENCES  auditorium  ( id )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+    
+    -- -----------------------------------------------------
+-- Table  cinema . NameAccessCount 
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS name_access_count  (
+   event_id  INT,
+   counter  INT DEFAULT 0,
+  CONSTRAINT  fk_NameQueryCount_event1 
+    FOREIGN KEY ( event_id )
+    REFERENCES event  ( id )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+
+
+-- -----------------------------------------------------
+-- Table  cinema . PriceQueryCount 
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS price_query_count  (
+   event_id  INT,
+   counter  INT  DEFAULT 0,
+  CONSTRAINT  fk_PriceQueryCount_event1 
+    FOREIGN KEY ( event_id )
+    REFERENCES  event  ( id )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+
+
+-- -----------------------------------------------------
+-- Table  cinema . BookTicketCount 
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS book_ticket_count  (
+   event_id  INT,
+   counter  INT  DEFAULT 0,
+  CONSTRAINT  fk_BookTicketCount_event1 
+    FOREIGN KEY ( event_id )
+    REFERENCES event ( id )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+    
+-- -----------------------------------------------------
+-- Table  cinema . discount_count 
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS discount_count  (
+   user_id  INT NOT NULL,
+   discType  VARCHAR(45) NULL,
+   counter  INT DEFAULT 0,
+  CONSTRAINT  fk_discount_count_user1 
+    FOREIGN KEY ( user_id )
+    REFERENCES  user  ( id )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)

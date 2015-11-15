@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.epam.learning.springcore.cinema.dao.EventDao;
-import com.epam.learning.springcore.cinema.model.Affiche;
 import com.epam.learning.springcore.cinema.model.Auditorium;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Movie;
@@ -17,9 +16,6 @@ import com.epam.learning.springcore.cinema.service.exception.EventServiceExcepti
 
 @Service
 public class EventServiceImpl implements EventService {
-
-	@Autowired
-	private Affiche affiche;
 	
 	@Autowired
 	private EventDao eventDao;
@@ -36,7 +32,7 @@ public class EventServiceImpl implements EventService {
 	
 	@Override
 	public void assignAuditorium(Event event, Auditorium auditorium, Date date) throws EventServiceException {
-		affiche.assignAuditorium(event, auditorium, date);
+		eventDao.assignAuditorium(event, auditorium, date);
 	}
 
 	@Override
@@ -56,7 +52,7 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public Affiche getAffiche() {
-		return affiche;
+	public List<Event> getEventsForDate(Date date) throws EventServiceException {
+		return eventDao.getEventsForDate(date);
 	}
 }

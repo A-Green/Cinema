@@ -1,5 +1,6 @@
 package com.epam.learning.springcore.cinema.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.epam.learning.springcore.cinema.model.Auditorium;
@@ -9,4 +10,5 @@ public interface AuditoriumDao {
 	int getSeatsNumber(String auditName);
 	List<Integer> getVipSeats(String auditName);
 	Auditorium getByName(String name);
+	List<Auditorium> getAssignedAuditoriums(Date date);
 }

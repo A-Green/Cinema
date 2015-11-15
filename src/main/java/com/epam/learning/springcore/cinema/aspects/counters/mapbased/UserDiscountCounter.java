@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.aspects.counters;
+package com.epam.learning.springcore.cinema.aspects.counters.mapbased;
 
 import java.util.HashMap;
 import java.util.Map;

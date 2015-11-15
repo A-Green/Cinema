@@ -1,5 +1,6 @@
 package com.epam.learning.springcore.cinema.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.epam.learning.springcore.cinema.model.Auditorium;
@@ -10,4 +11,5 @@ public interface AuditoriumService {
 	int getSeatsNumber(String auditName) throws AuditoriumServiceException;
 	List<Integer> getVipSeats(String auditName) throws AuditoriumServiceException;
 	Auditorium getByName(String name) throws AuditoriumServiceException;
+	List<Auditorium> getAssigned(Date date) throws AuditoriumServiceException;
 }

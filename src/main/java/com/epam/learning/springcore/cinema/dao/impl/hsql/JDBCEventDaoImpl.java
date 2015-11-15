@@ -31,7 +31,7 @@ public class JDBCEventDaoImpl extends JDBCBaseDaoImpl<Integer, Event> implements
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("eventId", event.getId());
 		params.addValue("audId", auditorium.getId());
-		params.addValue("date", new java.sql.Date(date.getTime()));
+		params.addValue("date", date);
 		jdbcTemplate.update(ASSIGN_AUDITORIUM, params);
 	}
 

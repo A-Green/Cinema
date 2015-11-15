@@ -31,7 +31,7 @@ public class JDBCTicketDaoImpl extends JDBCBaseDaoImpl<Integer, Ticket> implemen
 	public List<Ticket> getTicketsForEvent(final Event event, final Date date) {
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("id", event.getId());
-		params.addValue("date", new java.sql.Date(date.getTime()));
+		params.addValue("date", date);
 		return (List<Ticket>) handleEmptyResult(GET_PURCHASED_TICKETS, params, mapper);
 	}
 

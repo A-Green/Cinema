@@ -1,4 +1,6 @@
-package com.epam.learning.springcore.cinema.aspects.counters;
+package com.epam.learning.springcore.cinema.aspects.counters.jdbc;
+
+import javax.annotation.PostConstruct;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -9,7 +11,12 @@ import com.epam.learning.springcore.cinema.model.Ticket;
 
 @Aspect
 @Component
-public class BookTicketCounter extends AbstractSimpleCounter<Integer> {
+public class BookTicketCounter extends SimpleEventCounter {
+	
+	@PostConstruct
+	public void init() {
+		tableName = "book_ticket_count";
+	}
 
 	@After("execution( * com.epam.learning.springcore.cinema.service.BookingService+.bookTicket(..))")
 	public void countName(JoinPoint joinPoint) throws Throwable {

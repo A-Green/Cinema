@@ -1,5 +1,6 @@
 package com.epam.learning.springcore.cinema.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,11 @@ public class AuditoriumServiceImpl implements AuditoriumService {
 	@Override
 	public Auditorium getByName(String name) throws AuditoriumServiceException {
 		return auditoriumDao.getByName(name);
+	}
+
+	@Override
+	public List<Auditorium> getAssigned(Date date) throws AuditoriumServiceException {
+		return auditoriumDao.getAssignedAuditoriums(date);
 	}
 
 }

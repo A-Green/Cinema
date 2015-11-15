@@ -3,7 +3,6 @@ package com.epam.learning.springcore.cinema.service;
 import java.util.Date;
 import java.util.List;
 
-import com.epam.learning.springcore.cinema.model.Affiche;
 import com.epam.learning.springcore.cinema.model.Auditorium;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Rating;
@@ -15,5 +14,5 @@ public interface EventService extends BaseService<Integer, Event> {
 	void assignAuditorium(Event event, Auditorium auditorium, Date date)throws EventServiceException;
 	List<Event> getByName(String name) throws EventServiceException;
 	List<Event> getAll() throws EventServiceException;
-	Affiche getAffiche() throws EventServiceException;
+	List<Event> getEventsForDate(Date date) throws EventServiceException;
 }

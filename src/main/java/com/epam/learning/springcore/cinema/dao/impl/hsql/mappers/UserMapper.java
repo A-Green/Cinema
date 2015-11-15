@@ -15,7 +15,7 @@ public class UserMapper extends ContextMapper implements RowMapper<User> {
 		user.setId(rs.getInt("id"));
 		user.setName(rs.getString("name"));
 		user.setEmail(rs.getString("email"));
-		user.setBirthday(rs.getDate("birthday"));
+		user.setBirthday(rs.getTimestamp("birthday"));
 		return user;
 	}
 }

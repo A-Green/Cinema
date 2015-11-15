@@ -23,8 +23,7 @@ public class User extends Entity<Integer> {
 		this.id = id;
 	}
 	
-	public User(int id, String email, String name, Date date) {
-		this.id = id;
+	public User(String email, String name, Date date) {
 		this.email = email;
 		this.name = name;
 		this.birthday = date;

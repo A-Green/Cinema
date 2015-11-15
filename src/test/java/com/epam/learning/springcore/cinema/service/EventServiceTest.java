@@ -15,6 +15,7 @@ import com.epam.learning.springcore.cinema.model.Auditorium;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Rating;
 import com.epam.learning.springcore.cinema.service.exception.ServiceException;
+import com.epam.learning.springcore.cinema.utils.Formatter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml" })
@@ -42,12 +43,12 @@ public class EventServiceTest {
 		}
 		
 		Auditorium auditorium = auditoriumService.getAuditoriums().get(0);
-		Date date = new Date(System.currentTimeMillis());
+		Date date = Formatter.getCurrentDate();
 		eventService.assignAuditorium(event, auditorium, date);
 		
-		List<String> auditNames = eventService.getAffiche().getAssignedAuditoriums(event, date);
+		List<Auditorium> auditNames = auditoriumService.getAssigned(date);
 		assertNotNull(auditNames);
-		assertEquals(auditNames.size(),1,0);
-		assertTrue(auditNames.get(0) == auditorium.getName());
+		assertEquals(auditNames.size(),1);
+		assertTrue(auditNames.get(0).equals(auditorium));
 	}
 }

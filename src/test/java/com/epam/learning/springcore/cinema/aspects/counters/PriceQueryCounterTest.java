@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.epam.learning.springcore.cinema.aspects.counters.PriceQueryCounter;
+import com.epam.learning.springcore.cinema.aspects.counters.jdbc.PriceQueryCounter;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Movie;
 

@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import java.util.Date;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.epam.learning.springcore.cinema.model.User;
+import com.epam.learning.springcore.cinema.utils.Formatter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring.xml" })
@@ -30,8 +29,8 @@ public class JDBCUserDaoTest extends ContextSupportTest {
 		if (!setupDone) {
 			user = context.getBean(User.class);
 			user.setName("testUser");
-			user.setEmail("test@test.com");
-			user.setBirthday(new Date());
+			user.setEmail("testuser@test.com");
+			user.setBirthday(Formatter.getCurrentDate());
 			setupDone = true;
 		}
 	}
@@ -45,13 +44,13 @@ public class JDBCUserDaoTest extends ContextSupportTest {
 	@Test
 	public void getByTest() {
 		User testIdUser = userDao.getById(user.getId());
-		assertEquals(testIdUser, user);
+		assertEquals(user, testIdUser);
 
 		User testNameUser = userDao.getByName(user.getName());
-		assertEquals(testNameUser, user);
+		assertEquals(user, testNameUser);
 
 		User testEmailUser = userDao.getByEmail(user.getEmail());
-		assertEquals(testEmailUser, user);
+		assertEquals(user, testEmailUser);
 	}
 
 	@Test
