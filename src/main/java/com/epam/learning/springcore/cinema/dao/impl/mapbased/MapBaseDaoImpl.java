@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.dao.impl;
+package com.epam.learning.springcore.cinema.dao.impl.mapbased;
 
 import java.lang.reflect.Method;
 import java.util.Map;

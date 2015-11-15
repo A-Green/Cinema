@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.epam.learning.springcore.cinema.dao.TicketDao;
 import com.epam.learning.springcore.cinema.dao.UserDao;
 import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
@@ -17,6 +18,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDao userDao; 
+	
+	@Autowired
+	private TicketDao ticketDao;
 
 	@Override
 	public void save(User entity) throws UserServiceException {
@@ -36,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public List<Ticket> getBookedTickets(Integer userId) throws UserServiceException {
-		return userDao.getBookedTickets(userId);
+		return ticketDao.getBookedTickets(userId);
 	}
 	
 	public void remove(Integer id) throws ServiceException {

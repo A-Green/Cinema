@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.dao.impl;
+package com.epam.learning.springcore.cinema.dao.impl.mapbased;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,16 +9,17 @@ import org.springframework.stereotype.Repository;
 import com.epam.learning.springcore.cinema.dao.TicketDao;
 import com.epam.learning.springcore.cinema.model.Event;
 import com.epam.learning.springcore.cinema.model.Ticket;
+import com.epam.learning.springcore.cinema.model.User;
 
 @Repository
 public class TicketDaoImpl implements TicketDao {
 
 	private List<Ticket> ticketTrack = new ArrayList<>();
-
+/*
 	@Override
 	public void track(Ticket ticket) {
 		ticketTrack.add(ticket);
-	}
+	}*/
 
 	@Override
 	public List<Ticket> getTicketsForEvent(Event event, Date date) {
@@ -30,6 +31,18 @@ public class TicketDaoImpl implements TicketDao {
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public List<Ticket> getBookedTickets(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void bookTicket(User user, Ticket ticket) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

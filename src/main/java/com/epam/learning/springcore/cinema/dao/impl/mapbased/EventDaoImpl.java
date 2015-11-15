@@ -1,4 +1,4 @@
-package com.epam.learning.springcore.cinema.dao.impl;
+package com.epam.learning.springcore.cinema.dao.impl.mapbased;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -47,5 +47,11 @@ public class EventDaoImpl extends MapBaseDaoImpl<Integer, Event> implements Even
 	@Override
 	public List<Event> getAllEvents() {
 		return  new ArrayList<Event>(events.values());
+	}
+
+	@Override
+	public List<Event> getEventsForDate(Date date) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

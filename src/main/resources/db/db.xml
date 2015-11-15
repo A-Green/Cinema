@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/jdbc
+		http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+	<jdbc:embedded-database id="dataSource" type="HSQL">
+		<jdbc:script location="classpath:db/create-db.sql" />
+		<jdbc:script location="classpath:db/populate-db.sql" />
+	</jdbc:embedded-database>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg ref="dbcpDataSource" />
+	</bean>
+
+	<bean id="dbcpDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:mem:dataSource" />
+		<property name="username" value="root" />
+		<property name="password" value="123" />
+	</bean>
+
+	<bean id="userMapper" class="com.epam.learning.springcore.cinema.dao.impl.hsql.mappers.UserMapper">
+	</bean>
+
+	<bean id="jdbcUserDao" class="com.epam.learning.springcore.cinema.dao.impl.hsql.JDBCUserDaoImpl">
+		<property name="dbTableName" value="user" />
+		<property name="mapper" ref="userMapper" />
+	</bean>
+
+	<bean id="eventMapper" class="com.epam.learning.springcore.cinema.dao.impl.hsql.mappers.EventMapper">
+	</bean>
+
+	<bean id="jdbcEventDao" class="com.epam.learning.springcore.cinema.dao.impl.hsql.JDBCEventDaoImpl">
+		<property name="dbTableName" value="event" />
+		<property name="mapper" ref="eventMapper" />
+	</bean>
+
+	<bean id="aududitoriumMapper" class="com.epam.learning.springcore.cinema.dao.impl.hsql.mappers.AuditoriumMapper">
+	</bean>
+
+	<bean id="jdbcAuditoriumDao" class="com.epam.learning.springcore.cinema.dao.impl.hsql.JDBCAuditoriumDaoImpl">
+		<property name="dbTableName" value="auditorium" />
+		<property name="mapper" ref="aududitoriumMapper" />
+	</bean>
+
+	<bean id="ticketMapper" class="com.epam.learning.springcore.cinema.dao.impl.hsql.mappers.TicketMapper">
+	</bean>
+
+	<bean id="jdbcTicketDao" class="com.epam.learning.springcore.cinema.dao.impl.hsql.JDBCTicketDaoImpl">
+		<property name="dbTableName" value="ticket" />
+		<property name="mapper" ref="ticketMapper" />
+	</bean>
+
+</beans>

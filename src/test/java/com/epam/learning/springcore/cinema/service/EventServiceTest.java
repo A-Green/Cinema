@@ -32,7 +32,8 @@ public class EventServiceTest {
 		assertNotNull(event.getId());
 		
 		List<Event> events = eventService.getAll();
-		assertEquals(events.size(), 1, 0);
+		//2 because there is one from init data
+		assertEquals(events.size(), 2, 0);
 		
 		events = eventService.getByName("testEvent");
 		assertEquals(events.size(), 1, 0);

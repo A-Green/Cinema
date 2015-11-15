@@ -10,4 +10,5 @@ public interface EventDao extends BaseDao<Integer, Event> {
 	void assignAuditorium(Event event, Auditorium auditorium, Date date);
 	List<Event> getByName(String name);
 	List<Event> getAllEvents();
+	List<Event> getEventsForDate(Date date);
 }

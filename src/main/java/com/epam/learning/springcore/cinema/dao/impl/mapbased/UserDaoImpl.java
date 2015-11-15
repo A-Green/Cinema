@@ -1,17 +1,12 @@
-package com.epam.learning.springcore.cinema.dao.impl;
+package com.epam.learning.springcore.cinema.dao.impl.mapbased;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import org.springframework.stereotype.Repository;
 
 import com.epam.learning.springcore.cinema.dao.UserDao;
-import com.epam.learning.springcore.cinema.model.Event;
-import com.epam.learning.springcore.cinema.model.Ticket;
 import com.epam.learning.springcore.cinema.model.User;
 
 @Repository
@@ -38,20 +33,20 @@ public class UserDaoImpl extends MapBaseDaoImpl<Integer, User> implements UserDa
 		return fieldGetter(name, "getName");
 	}
 
-	@Override
+/*	@Override
 	public List<Ticket> getBookedTickets(Integer userId) {
 		User user = users.get(userId);
 		if (user != null) {
 			return user.getBookedTickets();
 		}
 		return null;
-	}
+	}*/
 
 	@Override
 	public Map<Integer, User> getEntityMap() {
 		return users;
 	}
-
+/*
 	@Override
 	public void bookTicket(User user, Ticket ticket) {
 		User registeredUser = users.get(user.getId());
@@ -75,7 +70,7 @@ public class UserDaoImpl extends MapBaseDaoImpl<Integer, User> implements UserDa
 			}
 		}
 		return bookedTickets;
-	}
+	}*/
 
 	@Override
 	public User registerUser(User user) {

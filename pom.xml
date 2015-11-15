@@ -5,7 +5,22 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<spring.ver>3.2.13.RELEASE</spring.ver>
+		<hsqldb.version>2.3.2</hsqldb.version>
 	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<dependency>
@@ -18,11 +33,24 @@
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.ver}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.ver}</version>
 		</dependency>
+		<!-- HyperSQL DB -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.1</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>commons-io</groupId>

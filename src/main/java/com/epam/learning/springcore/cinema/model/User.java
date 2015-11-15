@@ -42,8 +42,8 @@ public class User extends Entity<Integer> {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer number) {
+		this.id = number;
 	}
 
 	public String getEmail() {

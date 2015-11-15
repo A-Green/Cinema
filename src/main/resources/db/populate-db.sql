@@ -1,0 +1,25 @@
+CREATE USER "root" PASSWORD '123' ADMIN
+
+INSERT INTO auditorium (id, name, seatsAmount) VALUES (1, 'aud1', 100)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 1)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 2)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 3)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 4)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 5)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 6)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 7)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 8)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 9)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (1, 10)
+
+INSERT INTO auditorium (id, name, seatsAmount) VALUES (2,'aud2', 50)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (2, 1)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (2, 2)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (2, 3)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (2, 4)
+INSERT INTO vip_to_auditorium (auditorium_id, seatNumber) VALUES (2, 5)
+
+INSERT INTO user (name, email) VALUES ('test', 'test@test.com')
+INSERT INTO event (id, name, base_ticket_price) VALUES (1, 'Terminator', 100)
+INSERT INTO ticket (id, seat, price, auditorium_id, user_id, event_id) VALUES (1, 1, 100, 1, 0, 1)
+INSERT INTO affiche (auditorium_id, event_id, date) VALUES (1, 1, '2015-08-08 20:00:00')

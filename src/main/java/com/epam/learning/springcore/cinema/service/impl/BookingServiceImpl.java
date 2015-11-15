@@ -65,8 +65,8 @@ public class BookingServiceImpl implements BookingService {
 
 	@Override
 	public void bookTicket(User user, Ticket ticket) {
-		userDao.bookTicket(user, ticket);
-		ticketDao.track(ticket);
+		//ticketDao.bookTicket(user, ticket);
+		//ticketDao.track(ticket);
 	}
 
 	@Override
